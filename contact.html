@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact &amp; Gym Location | FitBliss</title>
+  <meta name="description" content="Get in touch with the FitBliss fitness coaching and support team. View gym working hours, address, interactive map, and frequently asked questions." />
+  <meta property="og:title" content="Contact &amp; Gym Location | FitBliss" />
+  <meta property="og:description" content="Reach our fitness coaches, schedule a gym walkthrough, or enquire about custom corporate and gym owner programs." />
+
+  <!-- Google Fonts: Poppins & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+</head>
+<body>
+
+  <!-- Sticky Header Navigation -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="FitBliss Home">
+        <span class="logo-icon" aria-hidden="true">⚡</span>
+        Fit<span class="accent">Bliss</span>
+      </a>
+
+      <!-- Hamburger Menu for Mobile -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Navigation Links -->
+      <nav id="navMenu" class="nav-menu" role="navigation" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="calculators.html" class="nav-link">Calculators</a>
+        <a href="workouts.html" class="nav-link">Workouts</a>
+        <a href="diet.html" class="nav-link">Diet Plans</a>
+        <a href="classes.html" class="nav-link">Classes</a>
+        <a href="membership.html" class="nav-link">Membership</a>
+        <a href="progress.html" class="nav-link">Progress</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+        <a href="membership.html" class="btn btn-primary btn-sm nav-cta-btn">Join Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main">
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">We Are Here For You</span>
+          <h1>Get in Touch with FitBliss</h1>
+          <p>
+            Have a question about our workout plans, Indian diet tiers, gym facility tour, or gym partnership? Send us a message and our team will get back to you swiftly.
+          </p>
+        </div>
+
+        <!-- Success Notification Banner (Initially hidden) -->
+        <div id="contactSuccessAlert" class="alert alert-success" style="display: none; max-width: 800px; margin: 0 auto 2.5rem auto;">
+          <span style="font-size: 1.5rem;">✓</span>
+          <div>
+            <strong>Message Received!</strong>
+            Thank you, <span id="contactSuccessName">Friend</span>. Your message has been saved in localStorage and our coach desk has been notified. We will reply within 24 hours.
+          </div>
+        </div>
+
+        <!-- Contact Layout: Form + Info -->
+        <div class="contact-layout">
+          <!-- Form Card -->
+          <div class="contact-card">
+            <h2 style="font-size: 1.45rem; margin-bottom: 0.5rem;">Send a Message</h2>
+            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 1.75rem;">
+              Fill out the form below. All validated enquiries are safely stored in your browser.
+            </p>
+
+            <form id="contactForm" novalidate>
+              <div class="form-group">
+                <label for="contactName" class="form-label">
+                  Your Name <span class="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="contactName"
+                  class="form-control"
+                  placeholder="e.g. Ananya Sen"
+                  required
+                />
+                <div class="form-error" id="error_contact_name"></div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="contactEmail" class="form-label">
+                    Email Address <span class="required">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="contactEmail"
+                    class="form-control"
+                    placeholder="e.g. ananya@example.com"
+                    required
+                  />
+                  <div class="form-error" id="error_contact_email"></div>
+                </div>
+
+                <div class="form-group">
+                  <label for="contactPhone" class="form-label">
+                    Phone Number <span class="required">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    id="contactPhone"
+                    class="form-control"
+                    placeholder="e.g. 9876543210"
+                    required
+                  />
+                  <div class="form-error" id="error_contact_phone"></div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contactMessage" class="form-label">
+                  Message or Question <span class="required">*</span>
+                </label>
+                <textarea
+                  id="contactMessage"
+                  rows="4"
+                  class="form-control"
+                  placeholder="How can our trainers or nutritionists support you?"
+                  required
+                ></textarea>
+                <div class="form-error" id="error_contact_message"></div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg btn-block">
+                Send Message ➔
+              </button>
+            </form>
+          </div>
+
+          <!-- Contact Details & Map Card -->
+          <div class="contact-info-card">
+            <h2 style="font-size: 1.45rem; margin-bottom: 1.25rem;">Visit Our Center</h2>
+
+            <!-- Info Item 1 -->
+            <div class="info-item">
+              <div class="info-icon" aria-hidden="true">📍</div>
+              <div class="info-details">
+                <h4>Center Address</h4>
+                <p>
+                  FitBliss Fitness &amp; Wellness Hub<br />
+                  3rd Floor, Lotus Grandeur, Linking Road<br />
+                  Bandra West, Mumbai, MH 400050
+                </p>
+              </div>
+            </div>
+
+            <!-- Info Item 2 -->
+            <div class="info-item">
+              <div class="info-icon" aria-hidden="true">⏰</div>
+              <div class="info-details">
+                <h4>Working Operating Hours</h4>
+                <p>
+                  <strong>Monday - Friday:</strong> 05:30 AM - 10:30 PM<br />
+                  <strong>Saturday - Sunday:</strong> 06:00 AM - 09:00 PM<br />
+                  <em>Open on all public holidays (special hours)</em>
+                </p>
+              </div>
+            </div>
+
+            <!-- Info Item 3 -->
+            <div class="info-item">
+              <div class="info-icon" aria-hidden="true">📞</div>
+              <div class="info-details">
+                <h4>Direct Phone &amp; Email</h4>
+                <p>
+                  Phone: +91 98200 12345 / 022 2640 9999<br />
+                  Email: support@fitbliss.in
+                </p>
+              </div>
+            </div>
+
+            <!-- Interactive Map Placeholder -->
+            <div class="map-placeholder" role="region" aria-label="Gym location map preview">
+              <span style="font-size: 2.2rem; margin-bottom: 0.35rem;" aria-hidden="true">🗺️</span>
+              <strong style="color: var(--color-charcoal-dark); font-size: 0.95rem;">Interactive Map Location</strong>
+              <p style="font-size: 0.82rem; color: #64748b; margin-top: 0.2rem;">
+                Opposite Khar Station Road Junction, Bandra West
+              </p>
+              <a
+                href="https://maps.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-sm btn-outline"
+                style="margin-top: 0.5rem; background: #ffffff;"
+              >
+                Open in Google Maps ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Accordion Section -->
+        <div id="faqSection" style="margin-top: 4.5rem; max-width: 850px; margin-left: auto; margin-right: auto;">
+          <div class="section-header" style="margin-bottom: 2rem;">
+            <span class="section-tag">Help &amp; Answers</span>
+            <h2>Frequently Asked Questions</h2>
+            <p>Common questions from beginners, gym regulars, and fitness facility owners.</p>
+          </div>
+
+          <div class="accordion">
+            <!-- FAQ 1 -->
+            <div class="accordion-item is-open">
+              <button class="accordion-header" type="button" aria-expanded="true">
+                <span>Can I do the workout plans at home without heavy gym machines?</span>
+                <span class="accordion-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="accordion-body">
+                Yes! Our Exercise Library features dedicated bodyweight and dumbbell filters. In the Weekly Plans, you can swap machine exercises for dumbbell goblet squats, push-ups, and pull-ups.
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="accordion-item">
+              <button class="accordion-header" type="button" aria-expanded="false">
+                <span>Are the Indian diet plans suitable for strict vegetarians?</span>
+                <span class="accordion-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="accordion-body">
+                Absolutely. Every calorie tier (1500, 1800, 2100, and 2400 kcal) has a dedicated 100% vegetarian plan featuring lentils, paneer, curd, sprouts, and soya chunks, as well as a separate 100% vegan plan.
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="accordion-item">
+              <button class="accordion-header" type="button" aria-expanded="false">
+                <span>How is the workout streak calculated in the Progress tracker?</span>
+                <span class="accordion-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="accordion-body">
+                The streak counts consecutive days where "Workout Completed" was checked. If you miss consecutive days, the counter resets to encourage daily movement and active recovery habit formation.
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="accordion-item">
+              <button class="accordion-header" type="button" aria-expanded="false">
+                <span>Can gym owners license or utilize FitBliss templates for their members?</span>
+                <span class="accordion-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="accordion-body">
+                Yes! We offer facility partnerships with customized class scheduling and printable nutrition templates for local gym owners. Contact us using the form above with your facility details.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Consistent Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="color: #ffffff; margin-bottom: 1rem;">
+            <span class="logo-icon" aria-hidden="true">⚡</span>
+            Fit<span class="accent">Bliss</span>
+          </a>
+          <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.25rem;">
+            "Fitness, Nutrition &amp; Wellness - made simple." Tailored for beginners, active gym members, and gym owners.
+          </p>
+          <div class="social-links" aria-label="Social media channels">
+            <a href="https://instagram.com" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener noreferrer">📷</a>
+            <a href="https://youtube.com" class="social-btn" aria-label="YouTube" target="_blank" rel="noopener noreferrer">▶</a>
+            <a href="https://facebook.com" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer">f</a>
+            <a href="https://twitter.com" class="social-btn" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">𝕏</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="calculators.html">Health Calculators</a></li>
+            <li><a href="workouts.html">Weekly Workouts</a></li>
+            <li><a href="diet.html">Indian Diet Plans</a></li>
+            <li><a href="progress.html">Progress Tracker</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Gym &amp; Classes</h4>
+          <ul class="footer-links">
+            <li><a href="classes.html">Weekly Timetable</a></li>
+            <li><a href="membership.html">Membership Plans</a></li>
+            <li><a href="contact.html">Gym Timings &amp; Map</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Facility Hours</h4>
+          <p style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 0.5rem;">
+            <strong>Mon - Fri:</strong> 5:30 AM - 10:30 PM
+          </p>
+          <p style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 1rem;">
+            <strong>Sat - Sun:</strong> 6:00 AM - 09:00 PM
+          </p>
+          <p style="font-size: 0.85rem; color: #94a3b8;">
+            📍 FitBliss Fitness &amp; Wellness Hub, Linking Road, Bandra West, Mumbai 400050
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-disclaimer">
+          <strong>Customer Support:</strong> We respond to all member inquiries and club questions within 24 operational business hours.
+        </div>
+        <div>&copy; 2026 FitBliss Inc. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="/js/main.js"></script>
+  <script type="module" src="/js/contactPage.js"></script>
+</body>
+</html>

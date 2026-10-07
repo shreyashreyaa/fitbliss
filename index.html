@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitBliss | Fitness, Nutrition & Wellness - made simple</title>
+  <meta name="description" content="FitBliss makes fitness, nutrition & wellness simple for beginners, gym members, and gym owners with smart calculators, tailored Indian diet plans, structured workouts, and progress tracking." />
+  <meta property="og:title" content="FitBliss | Fitness, Nutrition & Wellness - made simple" />
+  <meta property="og:description" content="Calculate BMI, BMR, TDEE & macro targets. Access custom Indian meal plans and 30+ exercise guides." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Poppins (Headings) & Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+</head>
+<body>
+
+  <!-- Sticky Header Navigation -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="FitBliss Home">
+        <span class="logo-icon" aria-hidden="true">⚡</span>
+        Fit<span class="accent">Bliss</span>
+      </a>
+
+      <!-- Hamburger Menu for Mobile -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Navigation Links -->
+      <nav id="navMenu" class="nav-menu" role="navigation" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="calculators.html" class="nav-link">Calculators</a>
+        <a href="workouts.html" class="nav-link">Workouts</a>
+        <a href="diet.html" class="nav-link">Diet Plans</a>
+        <a href="classes.html" class="nav-link">Classes</a>
+        <a href="membership.html" class="nav-link">Membership</a>
+        <a href="progress.html" class="nav-link">Progress</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="membership.html" class="btn btn-primary btn-sm nav-cta-btn">Join Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main">
+    <!-- Hero Banner -->
+    <section class="hero" aria-labelledby="heroHeading">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="badge badge-teal" style="margin-bottom: 1rem;">Wellness Made Simple</span>
+          <h1 id="heroHeading">
+            Fitness, Nutrition &amp; Wellness <br />
+            <span class="gradient-text">— made simple.</span>
+          </h1>
+          <p class="hero-tagline">
+            Empowering beginners, dedicated gym members, and gym owners with science-backed health tools, nutritious Indian diet plans, and personalized workout routines.
+          </p>
+          <p class="hero-desc">
+            No confusing fitness fads. Calculate your metabolic targets, follow clear 7-day splits, enjoy wholesome Indian meals, and track your daily transformation with zero hassle.
+          </p>
+          <div class="hero-actions">
+            <a href="calculators.html" class="btn btn-primary btn-lg">
+              Start Your Journey ➔
+            </a>
+            <a href="workouts.html" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: rgba(255,255,255,0.3);">
+              Explore Workouts
+            </a>
+          </div>
+
+          <!-- Hero Metrics -->
+          <div class="hero-stats">
+            <div class="hero-stat-item">
+              <div class="stat-value">10,000+</div>
+              <div class="stat-label">Calculations Run</div>
+            </div>
+            <div class="hero-stat-item">
+              <div class="stat-value">32+</div>
+              <div class="stat-label">Exercise Library</div>
+            </div>
+            <div class="hero-stat-item">
+              <div class="stat-value">100%</div>
+              <div class="stat-label">Indian Meal Plans</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-image-wrapper">
+          <img
+            src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80"
+            alt="Motivated athlete exercising with dumbbells at FitBliss gym"
+            loading="eager"
+          />
+          <div class="hero-floating-card">
+            <div class="floating-icon">🎯</div>
+            <div>
+              <strong style="display:block; font-size: 0.95rem;">Goal-Driven Blueprint</strong>
+              <span style="font-size: 0.8rem; color: #64748b;">Mifflin-St Jeor &amp; Macro Precision</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fitness Tip of the Day Banner -->
+    <div class="container">
+      <aside class="tip-banner" aria-labelledby="dailyTipTitle">
+        <div class="tip-content">
+          <span class="tip-icon" aria-hidden="true">💡</span>
+          <div>
+            <div class="tip-heading" id="dailyTipTitle">Fitness Tip of the Day</div>
+            <div class="tip-text" id="dailyTipText">
+              "Hydration is the secret engine of metabolism and recovery."
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-outline btn-sm" id="nextTipBtn" aria-label="Load next fitness tip">
+          Next Tip ⟳
+        </button>
+      </aside>
+    </div>
+
+    <!-- 6 Feature Cards Section -->
+    <section class="section" aria-labelledby="featuresHeading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Core Features</span>
+          <h2 id="featuresHeading">Everything You Need To Thrive</h2>
+          <p>
+            Whether you are stepping into a gym for the first time or managing fitness schedules, FitBliss simplifies every stage of your transformation.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Card 1 -->
+          <article class="feature-card card-lift">
+            <div class="feature-icon-box">🧮</div>
+            <h3>Smart Health Calculators</h3>
+            <p>
+              Instantly calculate your accurate BMI, Basal Metabolic Rate (BMR), TDEE, and exact protein, carb &amp; fat targets based on Mifflin-St Jeor formula.
+            </p>
+            <a href="calculators.html" class="card-action">Calculate Targets ➔</a>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="feature-card card-lift">
+            <div class="feature-icon-box">🏋️</div>
+            <h3>Structured 7-Day Workouts</h3>
+            <p>
+              Goal-aligned weekly workout splits for weight loss, muscle hypertrophy, and functional vitality tailored across Beginner, Intermediate, and Advanced tiers.
+            </p>
+            <a href="workouts.html" class="card-action">View Workouts ➔</a>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="feature-card card-lift">
+            <div class="feature-icon-box">🥗</div>
+            <h3>Tailored Indian Meal Plans</h3>
+            <p>
+              Delicious, authentic meal schedules using dal, roti, paneer, curd, sprouts, soya chunks, and chicken across 1,500 to 2,400 kcal in Veg, Non-Veg, and Vegan modes.
+            </p>
+            <a href="diet.html" class="card-action">Explore Meal Plans ➔</a>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="feature-card card-lift">
+            <div class="feature-icon-box">📖</div>
+            <h3>30+ Exercise Library</h3>
+            <p>
+              Searchable, filterable movements covering chest, back, legs, shoulders, arms, and core with equipment tags, difficulty indicators, and form cues.
+            </p>
+            <a href="workouts.html#exerciseLibrary" class="card-action">Browse Library ➔</a>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="feature-card card-lift">
+            <div class="feature-icon-box">🧘</div>
+            <h3>Live Class Timetables</h3>
+            <p>
+              Weekly timetables for Yoga, Zumba, HIIT, Strength, and Sound Meditation guided by our 4 certified national coaches.
+            </p>
+            <a href="classes.html" class="card-action">See Timetable ➔</a>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="feature-card card-lift">
+            <div class="feature-icon-box">📈</div>
+            <h3>Progress &amp; Streak Tracker</h3>
+            <p>
+              Log your daily weigh-ins, track consecutive workout streaks, and visualize weight trends over time using an interactive HTML5 canvas chart.
+            </p>
+            <a href="progress.html" class="card-action">Track Progress ➔</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section section-alt" aria-labelledby="testimonialsHeading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Community Stories</span>
+          <h2 id="testimonialsHeading">Loved by Members &amp; Gym Owners</h2>
+          <p>Real stories of consistency, vitality, and sustainable habit formation.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <!-- Testimonial 1 -->
+          <article class="testimonial-card">
+            <div class="testimonial-rating" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-quote">
+              "As a complete gym beginner, calorie counting felt intimidating. FitBliss gave me an exact Indian vegetarian diet using everyday dal and roti that helped me drop 8 kg in 12 weeks without starving!"
+            </p>
+            <div class="testimonial-author">
+              <img
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80"
+                alt="Portrait of Sneha Patel"
+                class="testimonial-avatar"
+                loading="lazy"
+              />
+              <div>
+                <div class="testimonial-name">Sneha Patel</div>
+                <div class="testimonial-role">Software Engineer &amp; Gym Beginner</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimonial 2 -->
+          <article class="testimonial-card">
+            <div class="testimonial-rating" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-quote">
+              "The Mifflin-St Jeor calculator matched my exact TDEE to the calorie. Following the Intermediate Hypertrophy workout split and tracking my streak gave me the best muscular gains of my life."
+            </p>
+            <div class="testimonial-author">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
+                alt="Portrait of Arjun Kapoor"
+                class="testimonial-avatar"
+                loading="lazy"
+              />
+              <div>
+                <div class="testimonial-name">Arjun Kapoor</div>
+                <div class="testimonial-role">Dedicated Gym Member (2 Years)</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimonial 3 -->
+          <article class="testimonial-card">
+            <div class="testimonial-rating" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-quote">
+              "I recommend FitBliss to every newcomer at my fitness studio. The exercise library and simple class timetable keep our members engaged, accountable, and progressing safely."
+            </p>
+            <div class="testimonial-author">
+              <img
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
+                alt="Portrait of Vikram Singh"
+                class="testimonial-avatar"
+                loading="lazy"
+              />
+              <div>
+                <div class="testimonial-name">Vikram Singh</div>
+                <div class="testimonial-role">Gym Owner &amp; Conditioning Coach</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call-To-Action Banner -->
+    <section class="section" aria-label="Call to action">
+      <div class="container">
+        <div class="cta-banner">
+          <h2>Ready to Transform Your Fitness Journey?</h2>
+          <p>
+            Calculate your personalized calorie and macro targets today, pick your weekly workout split, and join the FitBliss wellness movement.
+          </p>
+          <div class="cta-buttons">
+            <a href="calculators.html" class="btn btn-primary btn-lg">
+              Get Started Free ➔
+            </a>
+            <a href="membership.html" class="btn btn-secondary btn-lg">
+              Explore Memberships
+            </a>
+            <a href="contact.html" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: rgba(255,255,255,0.4);">
+              Contact Our Coaches
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Consistent Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1 -->
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="color: #ffffff; margin-bottom: 1rem;">
+            <span class="logo-icon" aria-hidden="true">⚡</span>
+            Fit<span class="accent">Bliss</span>
+          </a>
+          <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.25rem;">
+            "Fitness, Nutrition &amp; Wellness - made simple." Designed for beginners, gym regulars, and fitness club owners seeking sustainable, science-backed lifestyle changes.
+          </p>
+          <div class="social-links" aria-label="Social media channels">
+            <a href="https://instagram.com" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener noreferrer">📷</a>
+            <a href="https://youtube.com" class="social-btn" aria-label="YouTube" target="_blank" rel="noopener noreferrer">▶</a>
+            <a href="https://facebook.com" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer">f</a>
+            <a href="https://twitter.com" class="social-btn" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">𝕏</a>
+          </div>
+        </div>
+
+        <!-- Col 2 -->
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="calculators.html">Health Calculators</a></li>
+            <li><a href="workouts.html">Weekly Workouts</a></li>
+            <li><a href="diet.html">Indian Diet Plans</a></li>
+            <li><a href="workouts.html#exerciseLibrary">Exercise Library</a></li>
+            <li><a href="progress.html">Progress Tracker</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3 -->
+        <div class="footer-col">
+          <h4>Gym &amp; Classes</h4>
+          <ul class="footer-links">
+            <li><a href="classes.html">Weekly Timetable</a></li>
+            <li><a href="classes.html#trainers">Certified Trainers</a></li>
+            <li><a href="membership.html">Membership Plans</a></li>
+            <li><a href="contact.html">Gym Timings &amp; Map</a></li>
+            <li><a href="contact.html#faqSection">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4 -->
+        <div class="footer-col">
+          <h4>Facility Hours</h4>
+          <p style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 0.5rem;">
+            <strong>Mon - Fri:</strong> 5:30 AM - 10:30 PM
+          </p>
+          <p style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 1rem;">
+            <strong>Sat - Sun:</strong> 6:00 AM - 09:00 PM
+          </p>
+          <p style="font-size: 0.85rem; color: #94a3b8;">
+            📍 FitBliss Fitness &amp; Wellness Hub, Linking Road, Bandra West, Mumbai 400050
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-disclaimer">
+          <strong>Medical Disclaimer:</strong> Content and tools provided by FitBliss are for educational and self-tracking purposes only and do not substitute medical advice, diagnosis, or personalized clinical nutrition. Always consult a healthcare provider before starting any rigorous diet or physical training program.
+        </div>
+        <div>
+          &copy; 2026 FitBliss Inc. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>

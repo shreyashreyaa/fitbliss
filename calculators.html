@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Health &amp; Fitness Calculators | FitBliss</title>
+  <meta name="description" content="Calculate your BMI, BMR (Mifflin-St Jeor), TDEE, daily calorie target and protein, carbohydrate, and fat macronutrient goals with FitBliss." />
+  <meta property="og:title" content="Health &amp; Fitness Calculators | FitBliss" />
+  <meta property="og:description" content="Science-backed BMI, BMR, TDEE & macro target calculations with instant personalized recommendations." />
+
+  <!-- Google Fonts: Poppins & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+</head>
+<body>
+
+  <!-- Sticky Header Navigation -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="FitBliss Home">
+        <span class="logo-icon" aria-hidden="true">⚡</span>
+        Fit<span class="accent">Bliss</span>
+      </a>
+
+      <!-- Hamburger Menu for Mobile -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Navigation Links -->
+      <nav id="navMenu" class="nav-menu" role="navigation" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="calculators.html" class="nav-link active">Calculators</a>
+        <a href="workouts.html" class="nav-link">Workouts</a>
+        <a href="diet.html" class="nav-link">Diet Plans</a>
+        <a href="classes.html" class="nav-link">Classes</a>
+        <a href="membership.html" class="nav-link">Membership</a>
+        <a href="progress.html" class="nav-link">Progress</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="membership.html" class="btn btn-primary btn-sm nav-cta-btn">Join Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main">
+    <!-- Page Header -->
+    <section class="section" style="padding-bottom: 2rem;">
+      <div class="container">
+        <div class="section-header" style="margin-bottom: 2rem;">
+          <span class="section-tag">Science-Based Metrics</span>
+          <h1>Personalized Fitness &amp; Macro Calculator</h1>
+          <p>
+            Enter your physical details to calculate your exact Body Mass Index (BMI), Basal Metabolic Rate (BMR), Daily Energy Expenditure (TDEE), and targeted macronutrient breakdown.
+          </p>
+        </div>
+
+        <!-- Calculator Layout -->
+        <div class="calc-layout">
+          <!-- Form Card -->
+          <div class="calc-card-container">
+            <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Your Physical Profile</h2>
+            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 1.75rem;">
+              Fill in all fields with realistic measurements. Your profile is securely saved in your browser.
+            </p>
+
+            <form id="calcForm" novalidate>
+              <!-- Age & Gender -->
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="calcAge" class="form-label">
+                    Age (Years) <span class="required">*</span>
+                  </label>
+                  <input
+                    type="number"
+                    id="calcAge"
+                    name="age"
+                    class="form-control"
+                    placeholder="e.g. 21"
+                    min="12"
+                    max="110"
+                    required
+                  />
+                  <div class="form-error" id="error_age"></div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">
+                    Gender <span class="required">*</span>
+                  </label>
+                  <div class="radio-group-cards" role="radiogroup" aria-label="Gender selection">
+                    <label class="radio-card-label">
+                      <input type="radio" name="calcGender" value="male" checked />
+                      <span>Male ♂</span>
+                    </label>
+                    <label class="radio-card-label">
+                      <input type="radio" name="calcGender" value="female" />
+                      <span>Female ♀</span>
+                    </label>
+                  </div>
+                  <div class="form-error" id="error_gender"></div>
+                </div>
+              </div>
+
+              <!-- Height & Weight -->
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="calcHeight" class="form-label">
+                    Height (cm) <span class="required">*</span>
+                  </label>
+                  <input
+                    type="number"
+                    id="calcHeight"
+                    name="height"
+                    class="form-control"
+                    placeholder="e.g. 175"
+                    min="90"
+                    max="250"
+                    required
+                  />
+                  <span class="form-hint">Tip: 175 cm ≈ 5 ft 9 in</span>
+                  <div class="form-error" id="error_height"></div>
+                </div>
+
+                <div class="form-group">
+                  <label for="calcWeight" class="form-label">
+                    Weight (kg) <span class="required">*</span>
+                  </label>
+                  <input
+                    type="number"
+                    step="0.1"
+                    id="calcWeight"
+                    name="weight"
+                    class="form-control"
+                    placeholder="e.g. 70"
+                    min="25"
+                    max="350"
+                    required
+                  />
+                  <span class="form-hint">Tip: 70 kg ≈ 154 lbs</span>
+                  <div class="form-error" id="error_weight"></div>
+                </div>
+              </div>
+
+              <!-- Activity Level -->
+              <div class="form-group">
+                <label for="calcActivity" class="form-label">
+                  Activity Level <span class="required">*</span>
+                </label>
+                <select id="calcActivity" name="activityLevel" class="form-control" required>
+                  <option value="sedentary">Sedentary (desk job, little to no exercise - 1.2x)</option>
+                  <option value="light">Lightly Active (light exercise 1-3 days/week - 1.375x)</option>
+                  <option value="moderate" selected>Moderately Active (exercise 3-5 days/week - 1.55x)</option>
+                  <option value="very">Very Active (hard exercise 6-7 days/week - 1.725x)</option>
+                  <option value="extra">Extra Active (intense athletic training/physical job - 1.9x)</option>
+                </select>
+                <div class="form-error" id="error_activityLevel"></div>
+              </div>
+
+              <!-- Primary Goal -->
+              <div class="form-group">
+                <label for="calcGoal" class="form-label">
+                  Fitness Goal <span class="required">*</span>
+                </label>
+                <select id="calcGoal" name="goal" class="form-control" required>
+                  <option value="weight_loss" selected>Weight Loss (Deficit: -500 kcal | 30% P, 40% C, 30% F)</option>
+                  <option value="maintenance">Maintenance (Equal Energy: 0 kcal | 25% P, 50% C, 25% F)</option>
+                  <option value="muscle_gain">Muscle Gain (Surplus: +300 kcal | 30% P, 45% C, 25% F)</option>
+                </select>
+                <div class="form-error" id="error_goal"></div>
+              </div>
+
+              <!-- Form Buttons -->
+              <div style="display: flex; gap: 0.85rem; margin-top: 1.75rem;">
+                <button type="submit" class="btn btn-primary btn-block btn-lg" id="calculateSubmitBtn">
+                  Calculate Metrics ➔
+                </button>
+                <button type="button" class="btn btn-outline" id="calcResetBtn" title="Reset form">
+                  Reset
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Results Presentation Card -->
+          <div class="calc-results-container" aria-live="polite">
+            <!-- Empty State (Before Calculation) -->
+            <div id="resultsPlaceholder" class="empty-state">
+              <div class="empty-state-icon" aria-hidden="true">📊</div>
+              <h3 class="empty-state-title">Ready for Your Metrics?</h3>
+              <p class="empty-state-desc">
+                Fill out the profile on the left and click <strong>Calculate Metrics</strong>. We will compute your exact BMI category, BMR, TDEE, and daily macro grams.
+              </p>
+              <div style="display: inline-block; padding: 0.6rem 1.2rem; background: #f1f5f9; border-radius: 8px; font-size: 0.85rem; color: #475569;">
+                💡 Try the test case: 21-yr male, 70 kg, 175 cm, moderate, weight loss.
+              </div>
+            </div>
+
+            <!-- Active Results Content -->
+            <div id="resultsContent" style="display: none;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                <h2 style="font-size: 1.5rem; margin-bottom: 0;">Your Health Profile</h2>
+                <span class="badge badge-teal">Saved to Profile</span>
+              </div>
+
+              <!-- Featured Target Calories Box -->
+              <div class="metric-highlights-grid">
+                <div class="metric-box featured">
+                  <div class="metric-label">Daily Target Calorie Intake</div>
+                  <div class="metric-value-wrap">
+                    <span class="metric-number" id="resTargetCals" style="color: var(--color-teal);">0</span>
+                    <span class="metric-unit">kcal / day</span>
+                  </div>
+                  <p class="metric-desc">
+                    Your goal-adjusted caloric target to consume daily for steady, healthy results.
+                  </p>
+                </div>
+
+                <!-- BMI Box -->
+                <div class="metric-box">
+                  <div class="metric-label">Body Mass Index (BMI)</div>
+                  <div class="metric-value-wrap">
+                    <span class="metric-number" id="resBmiValue">0.0</span>
+                    <span class="badge" id="resBmiCategory" style="margin-left: 0.5rem;">Normal</span>
+                  </div>
+                  <p class="metric-desc" id="resBmiDesc">
+                    Indicates weight relative to height.
+                  </p>
+                </div>
+
+                <!-- BMR Box -->
+                <div class="metric-box">
+                  <div class="metric-label">Basal Metabolic Rate (BMR)</div>
+                  <div class="metric-value-wrap">
+                    <span class="metric-number" id="resBmrValue">0</span>
+                    <span class="metric-unit">kcal / day</span>
+                  </div>
+                  <p class="metric-desc">
+                    Mifflin-St Jeor estimate: Calories burned by your body simply staying alive at rest.
+                  </p>
+                </div>
+
+                <!-- TDEE Box -->
+                <div class="metric-box" style="grid-column: span 2;">
+                  <div class="metric-label">Total Daily Energy Expenditure (TDEE)</div>
+                  <div class="metric-value-wrap">
+                    <span class="metric-number" id="resTdeeValue">0</span>
+                    <span class="metric-unit">kcal / day</span>
+                  </div>
+                  <p class="metric-desc">
+                    Your actual daily burn including your physical work and exercise sessions.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Macronutrient Distribution -->
+              <div class="macros-card">
+                <h3 style="font-size: 1.15rem; margin-bottom: 0.25rem;">Target Macronutrient Split</h3>
+                <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1.25rem;">
+                  Gram calculations based on: Protein (4 kcal/g), Carbohydrates (4 kcal/g), Fat (9 kcal/g).
+                </p>
+
+                <!-- Protein -->
+                <div class="macro-bar-row">
+                  <div class="macro-bar-header">
+                    <span>🍗 Protein</span>
+                    <span id="resProteinGrams" style="color: var(--color-orange);">0 g (0%)</span>
+                  </div>
+                  <div class="macro-bar-track">
+                    <div class="macro-bar-fill protein" id="resProteinBar" style="width: 0%;"></div>
+                  </div>
+                  <div style="font-size: 0.75rem; color: #64748b; margin-top: 0.25rem;" id="resProteinCals">
+                    0 kcal
+                  </div>
+                </div>
+
+                <!-- Carbs -->
+                <div class="macro-bar-row">
+                  <div class="macro-bar-header">
+                    <span>🌾 Carbohydrates</span>
+                    <span id="resCarbsGrams" style="color: var(--color-teal);">0 g (0%)</span>
+                  </div>
+                  <div class="macro-bar-track">
+                    <div class="macro-bar-fill carbs" id="resCarbsBar" style="width: 0%;"></div>
+                  </div>
+                  <div style="font-size: 0.75rem; color: #64748b; margin-top: 0.25rem;" id="resCarbsCals">
+                    0 kcal
+                  </div>
+                </div>
+
+                <!-- Fat -->
+                <div class="macro-bar-row">
+                  <div class="macro-bar-header">
+                    <span>🥑 Healthy Fats</span>
+                    <span id="resFatGrams" style="color: #d97706;">0 g (0%)</span>
+                  </div>
+                  <div class="macro-bar-track">
+                    <div class="macro-bar-fill fat" id="resFatBar" style="width: 0%;"></div>
+                  </div>
+                  <div style="font-size: 0.75rem; color: #64748b; margin-top: 0.25rem;" id="resFatCals">
+                    0 kcal
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div style="display: flex; gap: 0.85rem; flex-wrap: wrap; margin-top: 1.5rem;">
+                <a href="workouts.html" class="btn btn-primary" style="flex: 1;">
+                  Apply to Workouts ➔
+                </a>
+                <a href="diet.html" class="btn btn-secondary" style="flex: 1;">
+                  See Matched Diet ➔
+                </a>
+              </div>
+
+              <!-- Scientific Formulas Reference Table -->
+              <div class="disclaimer-box">
+                <strong>Calculation Reference:</strong>
+                <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.8rem; line-height: 1.5;">
+                  <li><strong>BMI:</strong> Weight (kg) / [Height (m)]²</li>
+                  <li><strong>BMR (Mifflin-St Jeor):</strong> Men = 10×W + 6.25×H - 5×Age + 5; Women = 10×W + 6.25×H - 5×Age - 161</li>
+                  <li><strong>TDEE:</strong> BMR × Activity Multiplier (1.2 to 1.9)</li>
+                  <li><strong>Target:</strong> Loss = TDEE - 500 kcal; Gain = TDEE + 300 kcal</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Medical Disclaimer -->
+        <div class="disclaimer-box" style="margin-top: 3rem; background-color: #ffffff;">
+          <strong>Medical &amp; Clinical Notice:</strong>
+          These health calculations are mathematical estimates derived from standard peer-reviewed equations (including Mifflin-St Jeor and WHO BMI classifications). They are intended exclusively for general wellness tracking and education, not clinical diagnostics, medical advice, or prescribing eating plans. Always consult your primary physician, endocrinologist, or registered sports dietitian before undertaking radical dietary adjustments or intensive resistance training.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Consistent Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="color: #ffffff; margin-bottom: 1rem;">
+            <span class="logo-icon" aria-hidden="true">⚡</span>
+            Fit<span class="accent">Bliss</span>
+          </a>
+          <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.25rem;">
+            "Fitness, Nutrition &amp; Wellness - made simple." Tailored for beginners, active gym members, and gym owners.
+          </p>
+          <div class="social-links" aria-label="Social media channels">
+            <a href="https://instagram.com" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener noreferrer">📷</a>
+            <a href="https://youtube.com" class="social-btn" aria-label="YouTube" target="_blank" rel="noopener noreferrer">▶</a>
+            <a href="https://facebook.com" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer">f</a>
+            <a href="https://twitter.com" class="social-btn" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">𝕏</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="calculators.html">Health Calculators</a></li>
+            <li><a href="workouts.html">Weekly Workouts</a></li>
+            <li><a href="diet.html">Indian Diet Plans</a></li>
+            <li><a href="progress.html">Progress Tracker</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Gym &amp; Classes</h4>
+          <ul class="footer-links">
+            <li><a href="classes.html">Weekly Timetable</a></li>
+            <li><a href="membership.html">Membership Plans</a></li>
+            <li><a href="contact.html">Gym Timings &amp; Map</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Facility Hours</h4>
+          <p style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 0.5rem;">
+            <strong>Mon - Fri:</strong> 5:30 AM - 10:30 PM
+          </p>
+          <p style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 1rem;">
+            <strong>Sat - Sun:</strong> 6:00 AM - 09:00 PM
+          </p>
+          <p style="font-size: 0.85rem; color: #94a3b8;">
+            📍 FitBliss Fitness &amp; Wellness Hub, Linking Road, Bandra West, Mumbai 400050
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-disclaimer">
+          <strong>Medical Disclaimer:</strong> FitBliss calculations are empirical estimates and not medical advice. Consult a certified medical doctor before beginning a new training or nutrition plan.
+        </div>
+        <div>&copy; 2026 FitBliss Inc. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="/js/main.js"></script>
+  <script type="module" src="/js/calculators.js"></script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wholesome Indian Diet Plans | FitBliss</title>
+  <meta name="description" content="Balanced Indian meal plans calibrated for 1500, 1800, 2100, and 2400 kcal in Vegetarian, Non-Vegetarian, and Vegan options. Nutritious dal, roti, paneer, curd, poha, idli, sprouts and soya chunks." />
+  <meta property="og:title" content="Wholesome Indian Diet Plans | FitBliss" />
+  <meta property="og:description" content="Nutritious, authentic Indian daily meal schedules designed for fat loss, muscle retention, and daily vitality." />
+
+  <!-- Google Fonts: Poppins & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+</head>
+<body>
+
+  <!-- Sticky Header Navigation -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="FitBliss Home">
+        <span class="logo-icon" aria-hidden="true">⚡</span>
+        Fit<span class="accent">Bliss</span>
+      </a>
+
+      <!-- Hamburger Menu for Mobile -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Navigation Links -->
+      <nav id="navMenu" class="nav-menu" role="navigation" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="calculators.html" class="nav-link">Calculators</a>
+        <a href="workouts.html" class="nav-link">Workouts</a>
+        <a href="diet.html" class="nav-link active">Diet Plans</a>
+        <a href="classes.html" class="nav-link">Classes</a>
+        <a href="membership.html" class="nav-link">Membership</a>
+        <a href="progress.html" class="nav-link">Progress</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="membership.html" class="btn btn-primary btn-sm nav-cta-btn">Join Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main">
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Traditional &amp; Scientific Nutrition</span>
+          <h1>Calibrated Indian Meal Plans</h1>
+          <p>
+            Nutritious, realistic daily meal blueprints built around home-cooked Indian foods: yellow &amp; black dals, whole wheat rotis, fresh curd, paneer, sprouts, poha, idli, and lean proteins.
+          </p>
+
+          <!-- Auto-matched banner if calculated profile exists -->
+          <div id="dietAutoMatchBanner" class="alert alert-info" style="display: none; max-width: 650px; margin: 1.25rem auto 0 auto; text-align: left;">
+            <span style="font-size: 1.25rem;">🎯</span>
+            <div>
+              <strong>Auto-Matched to Your Profile!</strong>
+              Based on your calculated target of <span id="targetCalDisplay" style="font-weight: 700;">2,125 kcal</span>, we have automatically selected the nearest calibrated plan tier below.
+            </div>
+          </div>
+        </div>
+
+        <!-- Calorie Tier Selector (1500, 1800, 2100, 2400) -->
+        <div style="margin-bottom: 2rem;">
+          <label class="form-label" style="text-align: center; margin-bottom: 0.75rem;">
+            Step 1: Select Daily Calorie Tier
+          </label>
+          <div class="diet-tier-selector">
+            <button type="button" class="diet-tier-btn" data-diet-tier="1500">
+              <span class="cal-num">1,500</span>
+              <span class="cal-sub">Fat Cut &amp; Deficit</span>
+            </button>
+            <button type="button" class="diet-tier-btn is-active" data-diet-tier="1800">
+              <span class="cal-num">1,800</span>
+              <span class="cal-sub">Balanced Metabolic</span>
+            </button>
+            <button type="button" class="diet-tier-btn" data-diet-tier="2100">
+              <span class="cal-num">2,100</span>
+              <span class="cal-sub">Lean Performance</span>
+            </button>
+            <button type="button" class="diet-tier-btn" data-diet-tier="2400">
+              <span class="cal-num">2,400</span>
+              <span class="cal-sub">Muscle Hypertrophy</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Dietary Version Tabs (Vegetarian, Non-Vegetarian, Vegan) -->
+        <div style="display: flex; justify-content: center; margin-bottom: 2.5rem;">
+          <div class="diet-type-tabs" role="tablist" aria-label="Dietary preference selection">
+            <button type="button" class="diet-type-tab is-active" data-diet-type="vegetarian" role="tab">
+              🌱 Vegetarian
+            </button>
+            <button type="button" class="diet-type-tab" data-diet-type="non_vegetarian" role="tab">
+              🍗 Non-Vegetarian
+            </button>
+            <button type="button" class="diet-type-tab" data-diet-type="vegan" role="tab">
+              🥑 100% Vegan
+            </button>
+          </div>
+        </div>
+
+        <!-- Daily Summary Overview Card -->
+        <div class="card" style="margin-bottom: 2.5rem; background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%); border-color: #99f6e4;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
+            <div>
+              <h2 id="dietPlanTitle" style="font-size: 1.6rem; margin-bottom: 0.35rem;">Plan Name</h2>
+              <p id="dietPlanDesc" style="color: #475569; font-size: 0.95rem; margin-bottom: 0;">Plan description...</p>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-teal); font-weight: 700;">Day Total</span>
+              <div id="dietTotalCals" style="font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: var(--color-charcoal-dark); line-height: 1;">
+                1,800 kcal
+              </div>
+            </div>
+          </div>
+
+          <!-- Daily Macro Totals Badges -->
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.25rem;">
+            <div style="background: rgba(255,255,255,0.85); padding: 0.85rem; border-radius: 8px; border: 1px solid var(--color-border);">
+              <span style="font-size: 0.8rem; color: #64748b; font-weight: 600; display: block;">Total Protein</span>
+              <strong id="dietTotalProtein" style="font-size: 1.35rem; color: var(--color-orange);">94 g</strong>
+            </div>
+            <div style="background: rgba(255,255,255,0.85); padding: 0.85rem; border-radius: 8px; border: 1px solid var(--color-border);">
+              <span style="font-size: 0.8rem; color: #64748b; font-weight: 600; display: block;">Total Carbs</span>
+              <strong id="dietTotalCarbs" style="font-size: 1.35rem; color: var(--color-teal);">220 g</strong>
+            </div>
+            <div style="background: rgba(255,255,255,0.85); padding: 0.85rem; border-radius: 8px; border: 1px solid var(--color-border);">
+              <span style="font-size: 0.8rem; color: #64748b; font-weight: 600; display: block;">Total Fats</span>
+              <strong id="dietTotalFat" style="font-size: 1.35rem; color: #d97706;">55 g</strong>
+            </div>
+          </div>
+
+          <!-- Visual Macro Stacked Bar -->
+          <div>
+            <div style="font-size: 0.8rem; font-weight: 600; color: #64748b; margin-bottom: 0.4rem;">
+              Caloric Ratio Breakdown:
+            </div>
+            <div style="display: flex; height: 12px; border-radius: 999px; overflow: hidden; background-color: #e2e8f0;">
+              <div id="dietProteinBar" style="background-color: var(--color-orange); width: 25%;" title="Protein"></div>
+              <div id="dietCarbsBar" style="background-color: var(--color-teal); width: 50%;" title="Carbohydrates"></div>
+              <div id="dietFatBar" style="background-color: #f59e0b; width: 25%;" title="Fats"></div>
+            </div>
+            <div style="display: flex; gap: 1.5rem; font-size: 0.78rem; margin-top: 0.4rem; color: #64748b;">
+              <span><span style="display:inline-block; width:8px; height:8px; background:var(--color-orange); border-radius:50%; margin-right:4px;"></span>Protein</span>
+              <span><span style="display:inline-block; width:8px; height:8px; background:var(--color-teal); border-radius:50%; margin-right:4px;"></span>Carbohydrates</span>
+              <span><span style="display:inline-block; width:8px; height:8px; background:#f59e0b; border-radius:50%; margin-right:4px;"></span>Fats</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Meals Grid: Breakfast, Lunch, Snacks, Dinner -->
+        <div class="meals-grid" id="mealsGridContainer" aria-live="polite">
+          <!-- Populated dynamically via js/diet.js -->
+        </div>
+
+        <!-- Indian Nutrition Tips Box -->
+        <div class="card" style="padding: 2rem; background-color: #ffffff; margin-top: 2rem;">
+          <h3 style="margin-bottom: 0.75rem;">Practical Indian Nutrition Strategies:</h3>
+          <div class="form-grid-2">
+            <div>
+              <p style="font-size: 0.92rem; margin-bottom: 0.75rem;">
+                <strong>1. Boost Lentil Bioavailability:</strong> Combining dal with whole wheat roti or brown rice creates a complete amino acid profile with all 9 essential amino acids.
+              </p>
+              <p style="font-size: 0.92rem;">
+                <strong>2. The Magic of Dahi &amp; Chaas:</strong> Probiotics in fresh homemade curd improve gut microbiota, accelerating nutrient absorption and reducing workout inflammation.
+              </p>
+            </div>
+            <div>
+              <p style="font-size: 0.92rem; margin-bottom: 0.75rem;">
+                <strong>3. Soya Chunks &amp; Paneer Synergy:</strong> Soya chunks offer over 52g protein per 100g dry weight, making them one of the most cost-effective muscle builders in an Indian diet.
+              </p>
+              <p style="font-size: 0.92rem;">
+                <strong>4. Spice Wisdom:</strong> Turmeric (curcumin), cumin (jeera), and black pepper not only add flavor but aid gastric motility and insulin sensitivity.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Consistent Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="color: #ffffff; margin-bottom: 1rem;">
+            <span class="logo-icon" aria-hidden="true">⚡</span>
+            Fit<span class="accent">Bliss</span>
+          </a>
+          <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.25rem;">
+            "Fitness, Nutrition &amp; Wellness - made simple." Tailored for beginners, active gym members, and gym owners.
+          </p>
+          <div class="social-links" aria-label="Social media channels">
+            <a href="https://instagram.com" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener noreferrer">📷</a>
+            <a href="https://youtube.com" class="social-btn" aria-label="YouTube" target="_blank" rel="noopener noreferrer">▶</a>
+            <a href="https://facebook.com" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer">f</a>
+            <a href="https://twitter.com" class="social-btn" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">𝕏</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="calculators.html">Health Calculators</a></li>
+            <li><a href="workouts.html">Weekly Workouts</a></li>
+            <li><a href="diet.html">Indian Diet Plans</a></li>
+            <li><a href="progress.html">Progress Tracker</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Gym &amp; Classes</h4>
+          <ul class="footer-links">
+            <li><a href="classes.html">Weekly Timetable</a></li>
+            <li><a href="membership.html">Membership Plans</a></li>
+            <li><a href="contact.html">Gym Timings &amp; Map</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Facility Hours</h4>
+          <p style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 0.5rem;">
+            <strong>Mon - Fri:</strong> 5:30 AM - 10:30 PM
+          </p>
+          <p style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 1rem;">
+            <strong>Sat - Sun:</strong> 6:00 AM - 09:00 PM
+          </p>
+          <p style="font-size: 0.85rem; color: #94a3b8;">
+            📍 FitBliss Fitness &amp; Wellness Hub, Linking Road, Bandra West, Mumbai 400050
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-disclaimer">
+          <strong>Nutritional Note:</strong> Meal quantities and macronutrient approximations are based on standard Indian ingredient databases. Individual digestion and metabolic rates may vary.
+        </div>
+        <div>&copy; 2026 FitBliss Inc. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="/js/main.js"></script>
+  <script type="module" src="/js/diet.js"></script>
+</body>
+</html>

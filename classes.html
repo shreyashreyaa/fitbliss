@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classes Timetable &amp; Master Coaches | FitBliss</title>
+  <meta name="description" content="Check out the weekly FitBliss timetable for Yoga, Zumba, HIIT, Strength Training, and Sound Meditation guided by our certified fitness coaches." />
+  <meta property="og:title" content="Classes Timetable &amp; Master Coaches | FitBliss" />
+  <meta property="og:description" content="Discover inspiring studio classes and meet our certified strength and movement specialists." />
+
+  <!-- Google Fonts: Poppins & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+</head>
+<body>
+
+  <!-- Sticky Header Navigation -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="FitBliss Home">
+        <span class="logo-icon" aria-hidden="true">⚡</span>
+        Fit<span class="accent">Bliss</span>
+      </a>
+
+      <!-- Hamburger Menu for Mobile -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Navigation Links -->
+      <nav id="navMenu" class="nav-menu" role="navigation" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="calculators.html" class="nav-link">Calculators</a>
+        <a href="workouts.html" class="nav-link">Workouts</a>
+        <a href="diet.html" class="nav-link">Diet Plans</a>
+        <a href="classes.html" class="nav-link active">Classes</a>
+        <a href="membership.html" class="nav-link">Membership</a>
+        <a href="progress.html" class="nav-link">Progress</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="membership.html" class="btn btn-primary btn-sm nav-cta-btn">Join Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main">
+    <!-- Weekly Timetable Section -->
+    <section class="section" aria-labelledby="timetableHeading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Studio Schedule</span>
+          <h1 id="timetableHeading">Weekly Group Class Timetable</h1>
+          <p>
+            Energizing sessions designed for all fitness levels. Filter by day of the week or your favorite discipline: Yoga, Zumba, HIIT, Strength, or Meditation.
+          </p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="card" style="margin-bottom: 2rem; padding: 1.5rem;">
+          <!-- Day of the Week Selector -->
+          <div style="margin-bottom: 1.25rem;">
+            <label class="form-label" style="margin-bottom: 0.5rem;">Select Day:</label>
+            <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+              <button type="button" class="filter-pill is-active" data-timetable-day="Monday">Monday</button>
+              <button type="button" class="filter-pill" data-timetable-day="Tuesday">Tuesday</button>
+              <button type="button" class="filter-pill" data-timetable-day="Wednesday">Wednesday</button>
+              <button type="button" class="filter-pill" data-timetable-day="Thursday">Thursday</button>
+              <button type="button" class="filter-pill" data-timetable-day="Friday">Friday</button>
+              <button type="button" class="filter-pill" data-timetable-day="Saturday">Saturday</button>
+              <button type="button" class="filter-pill" data-timetable-day="Sunday">Sunday</button>
+            </div>
+          </div>
+
+          <!-- Class Category Selector -->
+          <div>
+            <label class="form-label" style="font-size: 0.85rem; color: #64748b; margin-bottom: 0.4rem;">Filter Discipline:</label>
+            <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+              <button type="button" class="filter-pill is-active" data-timetable-category="all">All Classes</button>
+              <button type="button" class="filter-pill" data-timetable-category="yoga">🧘 Yoga</button>
+              <button type="button" class="filter-pill" data-timetable-category="zumba">💃 Zumba</button>
+              <button type="button" class="filter-pill" data-timetable-category="hiit">⚡ HIIT</button>
+              <button type="button" class="filter-pill" data-timetable-category="strength">🏋️ Strength</button>
+              <button type="button" class="filter-pill" data-timetable-category="meditation">🕉️ Meditation</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timetable Table -->
+        <div class="table-responsive">
+          <table class="data-table" aria-label="Class Timetable">
+            <thead>
+              <tr>
+                <th scope="col">Time Slot</th>
+                <th scope="col">Class Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Trainer</th>
+                <th scope="col">Studio / Arena</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody id="timetableBody">
+              <!-- Rendered dynamically via js/classesPage.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Empty state if category filter has no match -->
+        <div id="timetableEmptyState" class="empty-state" style="display: none; margin-top: 1.5rem;">
+          <div class="empty-state-icon">📅</div>
+          <h3 class="empty-state-title">No classes scheduled</h3>
+          <p class="empty-state-desc">
+            No sessions match this filter on the selected day. Please select another day or choose "All Classes".
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Master Trainers Section -->
+    <section class="section section-alt" id="trainers" aria-labelledby="trainersHeading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Elite Mentors</span>
+          <h2 id="trainersHeading">Meet Your FitBliss Coaches</h2>
+          <p>
+            Certified, passionate fitness professionals dedicated to helping you master correct mechanics, avoid injury, and surpass your personal milestones.
+          </p>
+        </div>
+
+        <div class="trainers-grid" id="trainersGridContainer">
+          <!-- 4 Trainer Cards rendered dynamically via js/classesPage.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Consistent Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="color: #ffffff; margin-bottom: 1rem;">
+            <span class="logo-icon" aria-hidden="true">⚡</span>
+            Fit<span class="accent">Bliss</span>
+          </a>
+          <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.25rem;">
+            "Fitness, Nutrition &amp; Wellness - made simple." Tailored for beginners, active gym members, and gym owners.
+          </p>
+          <div class="social-links" aria-label="Social media channels">
+            <a href="https://instagram.com" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener noreferrer">📷</a>
+            <a href="https://youtube.com" class="social-btn" aria-label="YouTube" target="_blank" rel="noopener noreferrer">▶</a>
+            <a href="https://facebook.com" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer">f</a>
+            <a href="https://twitter.com" class="social-btn" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">𝕏</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="calculators.html">Health Calculators</a></li>
+            <li><a href="workouts.html">Weekly Workouts</a></li>
+            <li><a href="diet.html">Indian Diet Plans</a></li>
+            <li><a href="progress.html">Progress Tracker</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Gym &amp; Classes</h4>
+          <ul class="footer-links">
+            <li><a href="classes.html">Weekly Timetable</a></li>
+            <li><a href="membership.html">Membership Plans</a></li>
+            <li><a href="contact.html">Gym Timings &amp; Map</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Facility Hours</h4>
+          <p style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 0.5rem;">
+            <strong>Mon - Fri:</strong> 5:30 AM - 10:30 PM
+          </p>
+          <p style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 1rem;">
+            <strong>Sat - Sun:</strong> 6:00 AM - 09:00 PM
+          </p>
+          <p style="font-size: 0.85rem; color: #94a3b8;">
+            📍 FitBliss Fitness &amp; Wellness Hub, Linking Road, Bandra West, Mumbai 400050
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-disclaimer">
+          <strong>Class Etiquette:</strong> Please arrive 5 minutes before scheduled class start times. Bring personal gym towels and clean indoor workout shoes.
+        </div>
+        <div>&copy; 2026 FitBliss Inc. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="/js/main.js"></script>
+  <script type="module" src="/js/classesPage.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "FitBliss",
+  "description": "Fitness, Nutrition & Wellness - made simple. Complete multi-page fitness platform featuring health calculators, workouts, Indian meal plans, class timetables, membership options, and progress tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
